@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="全文搜索基础学习">
+<meta name="keywords" content="Lucene">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lucene学习入门">
+<meta property="og:url" content="http://yoursite.com/2018/12/02/Lucene学习入门/index.html">
+<meta property="og:site_name" content="清白之年">
+<meta property="og:description" content="全文搜索基础学习">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111055914-850068.png">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060138-468287.png">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060351-927094.jpg">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060550-434805.png">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060656-345223.png">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060814-680048.png">
+<meta property="og:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060920-53949.png">
+<meta property="og:updated_time" content="2018-12-02T11:30:47.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lucene学习入门">
+<meta name="twitter:description" content="全文搜索基础学习">
+<meta name="twitter:image" content="https://ilibing.nos-eastchina1.126.net/blog-img/20181111055914-850068.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/02/Lucene学习入门/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Lucene学习入门 | 清白之年</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清白之年</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">层楼终究误少年 自由早晚乱余生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/02/Lucene学习入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Bing">
+      <meta itemprop="description" content="终有一天我们会再重逢">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清白之年">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Lucene学习入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-02 19:24:04 / 修改时间：19:30:47" itemprop="dateCreated datePublished" datetime="2018-12-02T19:24:04+08:00">2018-12-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">全文搜索基础学习</blockquote>    <a id="more"></a></p>
+<!--more-->
+<h4 id="一-搜索引擎原理"><a href="#一-搜索引擎原理" class="headerlink" title="一.搜索引擎原理."></a>一.搜索引擎原理.</h4><p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111055914-850068.png" alt="mark"></p>
+<h4 id="二-什么是lucene"><a href="#二-什么是lucene" class="headerlink" title="二.什么是lucene"></a>二.什么是lucene</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Lucene是一套用于全文检索和搜寻的开源程序库，由Apache软件基金会支持和提供.</span><br><span class="line">Lucene提供了一个简单却强大的应用程序接口（API），能够做全文索引和搜寻，在Java开发环境里Lucene是一个成熟的免费开放源代码工具.</span><br><span class="line">Lucene并不是现成的搜索引擎产品，但可以用来制作搜索引擎产品.</span><br><span class="line">官网：http:<span class="comment">//lucene.apache.org/</span></span><br></pre></td></tr></table></figure>
+<h6 id="1-什么是全文检索-如何实现"><a href="#1-什么是全文检索-如何实现" class="headerlink" title="1.什么是全文检索.如何实现."></a>1.什么是全文检索.如何实现.</h6><p>计算机索引程序通过扫描文章中的每一个词，对每一个词建立一个索引，指明该词在文章中出现的次数和位置，当用户查询时，检索程序就根据事先建立的索引进行查找，并将查找的结果反馈给用户的检索方式.通过<strong>分词</strong>.</p>
+<p><strong>对要搜索的内容先创建索引,然后再通过索引进行搜索的过程.</strong></p>
+<p><strong>倒排索引</strong>: 又叫反向索引,以字或词为关键字进行索引，表中关键字所对应的记录表项，记录了出现这个字或词的所有文档，每一个表项记录该文档的ID和关键字在该文档中出现的位置情况.</p>
+<p><strong>总结</strong>：<strong>对文档（数据）中每一个词都做索引.</strong></p>
+<h6 id="2-索引和搜索的流程"><a href="#2-索引和搜索的流程" class="headerlink" title="2.索引和搜索的流程"></a>2.索引和搜索的流程</h6><p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060138-468287.png" alt="mark"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、绿色表示索引过程，对要搜索的原始内容进行索引构建一个索引库，索引过程包括：</span><br><span class="line">确定原始内容即要搜索的内容--&gt;采集文档--&gt;创建文档对象--&gt;分析文档--&gt;索引文档.</span><br><span class="line"><span class="number">2</span>、红色表示搜索过程，从索引库中搜索内容，搜索过程包括：</span><br><span class="line">用户通过搜索界面--&gt;创建查询--&gt;执行搜索，从索引库搜索--&gt;渲染搜索结果.</span><br></pre></td></tr></table></figure>
+<h4 id="二-Lucene的基本使用"><a href="#二-Lucene的基本使用" class="headerlink" title="二.Lucene的基本使用"></a>二.Lucene的基本使用</h4><p>使用Lucene的API来实现对索引的增（创建索引）、删（删除索引）、改（修改索引）、查（搜索数据）</p>
+<h6 id="1-新建一个普通的maven项目"><a href="#1-新建一个普通的maven项目" class="headerlink" title="1.新建一个普通的maven项目."></a>1.新建一个普通的maven项目.</h6><h6 id="2-导入pom相关依赖"><a href="#2-导入pom相关依赖" class="headerlink" title="2.导入pom相关依赖."></a>2.导入pom相关依赖.</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(出现红叉记得maven/update project)</span></span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;!-- Junit单元测试 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.12&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- lucene核心库 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lucene-core&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.10.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- Lucene的查询解析器 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lucene-queryparser&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.10.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- lucene的默认分词器库 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lucene-analyzers-common&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.10.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- lucene的高亮显示 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lucene-highlighter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.10.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- io流 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;!-- java编译插件 --&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.2&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;source&gt;1.7&lt;/source&gt;</span><br><span class="line">                    &lt;target&gt;1.7&lt;/target&gt;</span><br><span class="line">                    &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="3-创建索引库"><a href="#3-创建索引库" class="headerlink" title="3.创建索引库"></a><strong>3.创建索引库</strong></h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lucene</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 创建目录对象，指定索引库的存放位置；FSDirectory文件系统；RAMDirectory内存</span></span><br><span class="line">        <span class="comment">// 索引库保存到内存中,一般不用</span></span><br><span class="line">        <span class="comment">// Directory directory=new RAMDirectory();</span></span><br><span class="line">        <span class="comment">// 保存到磁盘</span></span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        <span class="comment">// 创建分词器对象</span></span><br><span class="line">        Analyzer analyzer = <span class="keyword">new</span> StandardAnalyzer();</span><br><span class="line">        <span class="comment">// 创建索引写入器配置对象，第一个参数版本VerSion.LATEST,第一个参数分词器</span></span><br><span class="line">        IndexWriterConfig conf = <span class="keyword">new</span> IndexWriterConfig(Version.LATEST, analyzer);</span><br><span class="line">        <span class="comment">// 创建一个索引写入器(IndexWriter),参数1:索引库存放的路径,参数2:配置信息,其中包括分词器对象.</span></span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(directory, conf);</span><br><span class="line">        <span class="comment">// 获得原始文档,使用io流读取文本文件</span></span><br><span class="line">        File docPath=<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\searchsource"</span>);</span><br><span class="line">        <span class="keyword">for</span> (File f : docPath.listFiles()) &#123;</span><br><span class="line">            <span class="comment">//取文件名</span></span><br><span class="line">            String fileName = f.getName();</span><br><span class="line">            <span class="comment">//取文件路径</span></span><br><span class="line">            String filePath = f.getPath();</span><br><span class="line">            <span class="comment">//文件内容</span></span><br><span class="line">            String fileContent = FileUtils.readFileToString(f);</span><br><span class="line">            <span class="comment">//文件大小</span></span><br><span class="line">            <span class="keyword">long</span> fileSize = FileUtils.sizeOf(f);</span><br><span class="line">            <span class="comment">// 创建文档对象</span></span><br><span class="line">            Document document = <span class="keyword">new</span> Document();</span><br><span class="line">            <span class="comment">//创建域</span></span><br><span class="line">            <span class="comment">//参数1：域的名称 参数2：域的内容 参数3：是否存储</span></span><br><span class="line">            TextField fileNameField = <span class="keyword">new</span> TextField(<span class="string">"name"</span>, fileName, Store.YES);</span><br><span class="line">            StoredField filePathField = <span class="keyword">new</span> StoredField(<span class="string">"path"</span>, filePath);</span><br><span class="line">            TextField fileContentField = <span class="keyword">new</span> TextField(<span class="string">"content"</span>, fileContent, Store.NO);</span><br><span class="line">            LongField fileSizeField = <span class="keyword">new</span> LongField(<span class="string">"size"</span>, fileSize, Store.YES);</span><br><span class="line">            <span class="comment">//5、向文档中添加域(term)</span></span><br><span class="line">            document.add(fileNameField);</span><br><span class="line">            document.add(filePathField);</span><br><span class="line">            document.add(fileContentField);</span><br><span class="line">            document.add(fileSizeField);</span><br><span class="line">            <span class="comment">//6、把文档对象写入索引库</span></span><br><span class="line">            indexWriter.addDocument(document);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 关闭IndexWriter对象</span></span><br><span class="line">        indexWriter.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行创建索引库成功:</p>
+<p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060351-927094.jpg" alt="mark"></p>
+<h6 id="4-使用luke工具查看索引文件"><a href="#4-使用luke工具查看索引文件" class="headerlink" title="4.使用luke工具查看索引文件"></a>4.使用luke工具查看索引文件</h6><p>运行start.bat打开.</p>
+<p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060550-434805.png" alt="mark"></p>
+<p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060656-345223.png" alt="mark"></p>
+<p><strong>文档列表:</strong></p>
+<p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060814-680048.png" alt="mark"></p>
+<p><strong>搜索页面:</strong></p>
+<p><img src="https://ilibing.nos-eastchina1.126.net/blog-img/20181111060920-53949.png" alt="mark"></p>
+<h6 id="5-查询索引器"><a href="#5-查询索引器" class="headerlink" title="5.查询索引器"></a>5.查询索引器</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询索引库</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//1指定索引库存放的位置</span></span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        <span class="comment">//2使用IndexReader对象打开索引库</span></span><br><span class="line">        IndexReader indexReader = DirectoryReader.open(directory);</span><br><span class="line">        <span class="comment">//3创建一个IndexSearcher对象，构造方法需要一个indexReader对象</span></span><br><span class="line">        IndexSearcher indexSearcher = <span class="keyword">new</span> IndexSearcher(indexReader);</span><br><span class="line">        <span class="comment">//4创建一个查询对象,需要指定查询域及要查询的关键字。</span></span><br><span class="line">        <span class="comment">//term的参数1：要搜索的域, 参数2：搜索的关键字</span></span><br><span class="line">        Query query = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"name"</span>, <span class="string">"apache"</span>));</span><br><span class="line">        <span class="comment">//参数1：查询条件, 参数2：查询结果返回的最大值</span></span><br><span class="line">        <span class="comment">//5取查询结果</span></span><br><span class="line">        TopDocs topDocs = indexSearcher.search(query, <span class="number">10</span>);</span><br><span class="line">        <span class="comment">//取查询结果总记录数</span></span><br><span class="line">        System.out.println(<span class="string">"查询结果总记录数："</span>  + topDocs.totalHits);</span><br><span class="line">        <span class="comment">//6遍历查询结果并打印.</span></span><br><span class="line">        <span class="keyword">for</span> (ScoreDoc scoreDoc : topDocs.scoreDocs) &#123;</span><br><span class="line">            <span class="comment">//取文档id</span></span><br><span class="line">            <span class="keyword">int</span> id = scoreDoc.doc;</span><br><span class="line">            <span class="comment">//从索引库中取文档对象</span></span><br><span class="line">            Document document = indexSearcher.doc(id);</span><br><span class="line">            <span class="comment">//取属性</span></span><br><span class="line">            System.out.println(document.get(<span class="string">"name"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"size"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"content"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"path"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//7关闭IndexReader对象</span></span><br><span class="line">        indexReader.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="6-IK中文分词器"><a href="#6-IK中文分词器" class="headerlink" title="6.IK中文分词器"></a>6.IK中文分词器</h6><p>优点: 中文分词更专业,可以扩展自定义词库(扩展词典和停用词典).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入IK分词器 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.janeluo&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;ikanalyzer&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2012_u6&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"><span class="comment">//将自定义词库的三个配置文件放到classpath下.</span></span><br><span class="line"><span class="comment">//exit.dic  扩展词典</span></span><br><span class="line"><span class="comment">//stopword.dic  停用词典</span></span><br><span class="line"><span class="comment">//IKAnalyzer  ik配置文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查看IK分析器的分词效果</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAnanlyzer</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个分析器对象</span></span><br><span class="line">        <span class="comment">//标准分词器</span></span><br><span class="line">        <span class="comment">//Analyzer analyzer = new StandardAnalyzer();</span></span><br><span class="line">        <span class="comment">//Analyzer analyzer = new CJKAnalyzer();</span></span><br><span class="line">        <span class="comment">//智能中文分词器</span></span><br><span class="line">        <span class="comment">//Analyzer analyzer = new SmartChineseAnalyzer();</span></span><br><span class="line">        <span class="comment">//IK中文分词器</span></span><br><span class="line">        Analyzer analyzer = <span class="keyword">new</span> IKAnalyzer();</span><br><span class="line">        <span class="comment">//从分析器对象中获得tokenStream对象</span></span><br><span class="line">        <span class="comment">//参数1：域的名称，可以为null或者""</span></span><br><span class="line">        <span class="comment">//参数2：要分析的文本内容</span></span><br><span class="line">        TokenStream tokenStream = analyzer.tokenStream(<span class="string">""</span>, <span class="string">"设置一个引用，引用可以有多重类型，可以时候关键词的引用、偏移量的引用"</span>);</span><br><span class="line">        <span class="comment">//设置一个引用，引用可以有多重类型，可以时候关键词的引用、偏移量的引用</span></span><br><span class="line">        CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);</span><br><span class="line">        <span class="comment">//偏移量</span></span><br><span class="line">        OffsetAttribute offsetAttribute = tokenStream.addAttribute(OffsetAttribute.class);</span><br><span class="line">        <span class="comment">//调用tokenStream的reset方法</span></span><br><span class="line">        tokenStream.reset();</span><br><span class="line">        <span class="comment">//使用while循环变量单词列表</span></span><br><span class="line">        <span class="keyword">while</span> (tokenStream.incrementToken()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"start-&gt;"</span> + offsetAttribute.startOffset());</span><br><span class="line">            <span class="comment">//打印单词</span></span><br><span class="line">            System.out.println(charTermAttribute);</span><br><span class="line">            System.out.println(<span class="string">"end-&gt;"</span> + offsetAttribute.endOffset());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭tokenStream</span></span><br><span class="line">        tokenStream.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="7-添加文档"><a href="#7-添加文档" class="headerlink" title="7.添加文档"></a>7.添加文档</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加文档</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        Analyzer analyzer = <span class="keyword">new</span> IKAnalyzer();</span><br><span class="line">        <span class="comment">//参数1：lucene的版本号，第二个参数：分析器对象</span></span><br><span class="line">        IndexWriterConfig conf = <span class="keyword">new</span> IndexWriterConfig(Version.LATEST, analyzer);</span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(directory, conf);</span><br><span class="line">        <span class="comment">//创建Document对象</span></span><br><span class="line">        Document document = <span class="keyword">new</span> Document();</span><br><span class="line">        <span class="comment">//创建域</span></span><br><span class="line">        TextField FileNameField = <span class="keyword">new</span> TextField(<span class="string">"name"</span>, <span class="string">"测试文件.txt"</span>, Store.YES);</span><br><span class="line">        StoredField FilepathField = <span class="keyword">new</span> StoredField(<span class="string">"path"</span>, <span class="string">"D:\\lucene\\测试文件.txt"</span>);</span><br><span class="line">        document.add(FileNameField);</span><br><span class="line">        document.add(FilepathField);</span><br><span class="line">        <span class="comment">//写入索引库</span></span><br><span class="line">        indexWriter.addDocument(document);</span><br><span class="line">        <span class="comment">//关闭资源</span></span><br><span class="line">        indexWriter.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="8-删除文档"><a href="#8-删除文档" class="headerlink" title="8.删除文档"></a>8.删除文档</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IndexWriter <span class="title">getIndexWriter</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        Analyzer analyzer = <span class="keyword">new</span> IKAnalyzer();</span><br><span class="line">        <span class="comment">//参数1：lucene的版本号，第二个参数：分析器对象</span></span><br><span class="line">        IndexWriterConfig conf = <span class="keyword">new</span> IndexWriterConfig(Version.LATEST, analyzer);</span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(directory, conf);</span><br><span class="line">        <span class="keyword">return</span> indexWriter;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//删除全部文档(慎用!!!)</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAllDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//获得IndexWriter对象</span></span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">this</span>.getIndexWriter();</span><br><span class="line">        <span class="comment">//调用删除方法删除索引库</span></span><br><span class="line">        indexWriter.deleteAll();</span><br><span class="line">        <span class="comment">//关闭资源</span></span><br><span class="line">        indexWriter.close();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//根据查询条件删除</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteDocumentByQuery</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">this</span>.getIndexWriter();</span><br><span class="line">        <span class="comment">//指定查询条件</span></span><br><span class="line">        Query query = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"name"</span>, <span class="string">"apache"</span>));</span><br><span class="line">        <span class="comment">//删除文档</span></span><br><span class="line">        indexWriter.deleteDocuments(query);</span><br><span class="line">        <span class="comment">//关闭资源</span></span><br><span class="line">        indexWriter.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="9-更新索引库"><a href="#9-更新索引库" class="headerlink" title="9.更新索引库"></a>9.更新索引库</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新索引库(本质:先删除后添加)</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        IndexWriter indexWriter = <span class="keyword">this</span>.getIndexWriter();</span><br><span class="line">        <span class="comment">//创建一个新的文档对象</span></span><br><span class="line">        Document document = <span class="keyword">new</span> Document();</span><br><span class="line">        document.add(<span class="keyword">new</span> TextField(<span class="string">"name"</span>, <span class="string">"更新后的文档"</span>, Store.YES));</span><br><span class="line">        document.add(<span class="keyword">new</span> TextField(<span class="string">"content"</span>, <span class="string">"更新后的文档内容"</span>, Store.YES));</span><br><span class="line">        <span class="comment">//term对象：指定要删除域及要删除的关键词，先根据term查询，把查询结果删除，然后追加一个新的文档。</span></span><br><span class="line">        indexWriter.updateDocument(<span class="keyword">new</span> Term(<span class="string">"name"</span>, <span class="string">"spring"</span>), document);</span><br><span class="line">        <span class="comment">//关闭资源</span></span><br><span class="line">        indexWriter.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="10-Query子类查询-查询所有文档"><a href="#10-Query子类查询-查询所有文档" class="headerlink" title="10.Query子类查询-查询所有文档"></a>10.Query子类查询-查询所有文档</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询所有文档</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchIndex</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMatchAllDocsQuery</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//指定索引库存放的路径</span></span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        <span class="comment">//创建一个IndexReader对象</span></span><br><span class="line">        IndexReader indexReader = DirectoryReader.open(directory);</span><br><span class="line">        <span class="comment">//创建IndexSearcher对象</span></span><br><span class="line">        IndexSearcher indexSearcher = <span class="keyword">new</span> IndexSearcher(indexReader);</span><br><span class="line">        <span class="comment">//创建一个Query对象,匹配所有文档查询</span></span><br><span class="line">        Query query = <span class="keyword">new</span> MatchAllDocsQuery();</span><br><span class="line">        System.out.println(query);</span><br><span class="line">        <span class="comment">//查询索引库</span></span><br><span class="line">        TopDocs topDocs = indexSearcher.search(query, <span class="number">100</span>);</span><br><span class="line">        ScoreDoc[] scoreDocs = topDocs.scoreDocs;</span><br><span class="line">        System.out.println(<span class="string">"查询结果总记录数："</span> + topDocs.totalHits);</span><br><span class="line">        <span class="comment">//遍历查询结果</span></span><br><span class="line">        <span class="keyword">for</span> (ScoreDoc scoreDoc : scoreDocs) &#123;</span><br><span class="line">            <span class="keyword">int</span> docId = scoreDoc.doc;</span><br><span class="line">            <span class="comment">//通过id查询文档对象</span></span><br><span class="line">            Document document = indexSearcher.doc(docId);</span><br><span class="line">            <span class="comment">//取属性</span></span><br><span class="line">            System.out.println(document.get(<span class="string">"name"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"size"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"content"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"path"</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭索引库</span></span><br><span class="line">        indexReader.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取重复代码</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> IndexSearcher <span class="title">getIndexSearcher</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//指定索引库存放的路径</span></span><br><span class="line">        Directory directory = FSDirectory.open(<span class="keyword">new</span> File(<span class="string">"D:\\lucene\\index"</span>));</span><br><span class="line">        <span class="comment">//创建一个IndexReader对象</span></span><br><span class="line">        IndexReader indexReader = DirectoryReader.open(directory);</span><br><span class="line">        <span class="comment">//创建IndexSearcher对象</span></span><br><span class="line">        IndexSearcher indexSearcher = <span class="keyword">new</span> IndexSearcher(indexReader);</span><br><span class="line">        <span class="keyword">return</span> indexSearcher;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printResult</span><span class="params">(IndexSearcher indexSearcher, Query query)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//查询索引库</span></span><br><span class="line">        TopDocs topDocs = indexSearcher.search(query, <span class="number">100</span>);</span><br><span class="line">        ScoreDoc[] scoreDocs = topDocs.scoreDocs;</span><br><span class="line">        System.out.println(<span class="string">"查询结果总记录数："</span> + topDocs.totalHits);</span><br><span class="line">        <span class="comment">//遍历查询结果</span></span><br><span class="line">        <span class="keyword">for</span> (ScoreDoc scoreDoc : scoreDocs) &#123;</span><br><span class="line">            <span class="keyword">int</span> docId = scoreDoc.doc;</span><br><span class="line">            <span class="comment">//通过id查询文档对象</span></span><br><span class="line">            Document document = indexSearcher.doc(docId);</span><br><span class="line">            <span class="comment">//取属性</span></span><br><span class="line">            System.out.println(document.get(<span class="string">"name"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"size"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"content"</span>));</span><br><span class="line">            System.out.println(document.get(<span class="string">"path"</span>));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="11-数值范围查询"><a href="#11-数值范围查询" class="headerlink" title="11.数值范围查询"></a>11.数值范围查询</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testNumericRangeQuery</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个数值范围查询对象</span></span><br><span class="line">        <span class="comment">//参数1：要查询的域 参数2：最小值 参数3：最大值 参数4：是否包含最小值 参数5：是否包含最大值</span></span><br><span class="line">        Query query = NumericRangeQuery.newLongRange(<span class="string">"size"</span>, <span class="number">1000l</span>, <span class="number">10000l</span>, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">        System.out.println(query);</span><br><span class="line">        <span class="comment">//打印结果</span></span><br><span class="line">        printResult(getIndexSearcher(), query);   </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="12-组合条件查询"><a href="#12-组合条件查询" class="headerlink" title="12.组合条件查询"></a>12.组合条件查询</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Occur.MUST：必须满足此条件，相当于and</span></span><br><span class="line"><span class="comment">//Occur.SHOULD：应该满足，但是不满足也可以，相当于or</span></span><br><span class="line"><span class="comment">//Occur.MUST_NOT：必须不满足。相当于not</span></span><br><span class="line"><span class="comment">//组合条件查询</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testBooleanQuery</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个BooleanQuery对象</span></span><br><span class="line">        BooleanQuery query = <span class="keyword">new</span> BooleanQuery();</span><br><span class="line">        <span class="comment">//创建子查询，文件大于1000小于10000</span></span><br><span class="line">        <span class="comment">//Query query1 = NumericRangeQuery.newLongRange("size", 1000l, 10000l, true, true);</span></span><br><span class="line">        Query query1 = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"name"</span>, <span class="string">"lucene"</span>));</span><br><span class="line">        <span class="comment">//文件名中包含mybatis关键字</span></span><br><span class="line">        Query query2 = <span class="keyword">new</span> TermQuery(<span class="keyword">new</span> Term(<span class="string">"name"</span>, <span class="string">"apache"</span>));</span><br><span class="line">        <span class="comment">//添加到BooleanQuery对象中</span></span><br><span class="line">        query.add(query1, Occur.MUST);</span><br><span class="line">        query.add(query2, Occur.MUST_NOT);</span><br><span class="line">        System.out.println(query);</span><br><span class="line">        <span class="comment">//执行查询</span></span><br><span class="line">        printResult(getIndexSearcher(), query);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="13-使用Queryparse查询"><a href="#13-使用Queryparse查询" class="headerlink" title="13.使用Queryparse查询"></a>13.使用Queryparse查询</h6><p>通过QueryParser也可以创建Query，QueryParser提供一个Parse方法，此方法可以直接根据查询语法来查询。Query对象执行的查询语法可通过System.out.println(query);查询。需要使用到分析器。建议创建索引时使用的分析器和查询索引时使用的分析器要一致。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testQueryParser</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个QueryParser对象。参数1：默认搜索域 参数2：分析器对象。</span></span><br><span class="line">        QueryParser queryParser = <span class="keyword">new</span> QueryParser(<span class="string">"content"</span>, <span class="keyword">new</span> IKAnalyzer());</span><br><span class="line">        <span class="comment">//调用parse方法可以获得一个Query对象</span></span><br><span class="line">        <span class="comment">//参数：要查询的内容，可以是一句话。先分词在查询</span></span><br><span class="line">        Query query = queryParser.parse(<span class="string">"mybatis is a apache project"</span>);</span><br><span class="line"><span class="comment">//        Query query = queryParser.parse("name:lucene OR name:apache");</span></span><br><span class="line">        System.out.println(query);</span><br><span class="line">        printResult(getIndexSearcher(), query);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="14-Lucene查询语法"><a href="#14-Lucene查询语法" class="headerlink" title="14.Lucene查询语法"></a>14.Lucene查询语法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、基础的查询语法，关键词查询：</span><br><span class="line">域名+“：”+搜索的关键字</span><br><span class="line">例如：content:java</span><br><span class="line"><span class="number">2</span>、范围查询</span><br><span class="line">域名+“:”+[最小值 TO 最大值]</span><br><span class="line">例如：size:[<span class="number">1</span> TO <span class="number">1000</span>]</span><br><span class="line">范围查询在lucene中不支持数值类型，支持字符串类型。在solr中支持数值类型。</span><br><span class="line"><span class="number">3</span>、组合条件查询</span><br><span class="line"><span class="number">1</span>）+条件<span class="number">1</span> +条件<span class="number">2</span>：两个条件之间是并且的关系and</span><br><span class="line">例如：+filename:apache +content:apache</span><br><span class="line"><span class="number">2</span>）+条件<span class="number">1</span> 条件<span class="number">2</span>：必须满足第一个条件，应该满足第二个条件</span><br><span class="line">例如：+filename:apache content:apache</span><br><span class="line"><span class="number">3</span>）条件<span class="number">1</span> 条件<span class="number">2</span>：两个条件满足其一即可。</span><br><span class="line">例如：filename:apache content:apache</span><br><span class="line"><span class="number">4</span>）-条件<span class="number">1</span> 条件<span class="number">2</span>：必须不满足条件<span class="number">1</span>，要满足条件<span class="number">2</span></span><br><span class="line">例如：-filename:apache content:apache</span><br><span class="line">Occur.MUST 查询条件必须满足，相当于and    +（加号）</span><br><span class="line">Occur.SHOULD 查询条件可选，相当于or</span><br><span class="line">    空（不用符号）</span><br><span class="line">Occur.MUST_NOT 查询条件不能满足，相当于not非    -（减号）</span><br><span class="line"></span><br><span class="line">第二种写法：</span><br><span class="line">条件<span class="number">1</span> AND 条件<span class="number">2</span></span><br><span class="line">条件<span class="number">1</span> OR 条件<span class="number">2</span></span><br><span class="line">条件<span class="number">1</span> NOT 条件<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h6 id="15-指定多个默认搜索域"><a href="#15-指定多个默认搜索域" class="headerlink" title="15.指定多个默认搜索域"></a>15.指定多个默认搜索域</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMultiFileQueryParser</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//指定默认搜索域</span></span><br><span class="line">    String[] fields =&#123;<span class="string">"name"</span>, <span class="string">"content"</span>&#125;;</span><br><span class="line">    MultiFieldQueryParser queryParser = <span class="keyword">new</span> MultiFieldQueryParser(fields, <span class="keyword">new</span> IKAnalyzer());</span><br><span class="line">    Query query = queryParser.parse(<span class="string">"mybatis is a apache project"</span>);</span><br><span class="line">    System.out.println(query);</span><br><span class="line">    printResult(getIndexSearcher(), query);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Lucene/" rel="tag"><i class="fa fa-tag"></i> Lucene</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/02/Hexo博客搭建/" rel="next" title="Hexo博客搭建">
+                <i class="fa fa-chevron-left"></i> Hexo博客搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Li Bing">
+            
+              <p class="site-author-name" itemprop="name">Li Bing</p>
+              <p class="site-description motion-element" itemprop="description">终有一天我们会再重逢</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ilibing" title="GitHub &rarr; https://github.com/ilibing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:13125149629@163.com" title="E-Mail &rarr; mailto:13125149629@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/8888bing?topnav=1&wvr=6&topsug=1&is_all=1" title="WeiBo &rarr; https://weibo.com/8888bing?topnav=1&wvr=6&topsug=1&is_all=1" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>WeiBo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/?from=infinity#/user/home?id=65620998" title="Music &rarr; https://music.163.com/?from=infinity#/user/home?id=65620998" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-搜索引擎原理"><span class="nav-number">1.</span> <span class="nav-text">一.搜索引擎原理.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-什么是lucene"><span class="nav-number">2.</span> <span class="nav-text">二.什么是lucene</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-什么是全文检索-如何实现"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.什么是全文检索.如何实现.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-索引和搜索的流程"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.索引和搜索的流程</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#二-Lucene的基本使用"><span class="nav-number">3.</span> <span class="nav-text">二.Lucene的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-新建一个普通的maven项目"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.新建一个普通的maven项目.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-导入pom相关依赖"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.导入pom相关依赖.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-创建索引库"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.创建索引库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-使用luke工具查看索引文件"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.使用luke工具查看索引文件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-查询索引器"><span class="nav-number">3.0.5.</span> <span class="nav-text">5.查询索引器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-IK中文分词器"><span class="nav-number">3.0.6.</span> <span class="nav-text">6.IK中文分词器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-添加文档"><span class="nav-number">3.0.7.</span> <span class="nav-text">7.添加文档</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-删除文档"><span class="nav-number">3.0.8.</span> <span class="nav-text">8.删除文档</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#9-更新索引库"><span class="nav-number">3.0.9.</span> <span class="nav-text">9.更新索引库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#10-Query子类查询-查询所有文档"><span class="nav-number">3.0.10.</span> <span class="nav-text">10.Query子类查询-查询所有文档</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#11-数值范围查询"><span class="nav-number">3.0.11.</span> <span class="nav-text">11.数值范围查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#12-组合条件查询"><span class="nav-number">3.0.12.</span> <span class="nav-text">12.组合条件查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#13-使用Queryparse查询"><span class="nav-number">3.0.13.</span> <span class="nav-text">13.使用Queryparse查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#14-Lucene查询语法"><span class="nav-number">3.0.14.</span> <span class="nav-text">14.Lucene查询语法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#15-指定多个默认搜索域"><span class="nav-number">3.0.15.</span> <span class="nav-text">15.指定多个默认搜索域</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Bing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
