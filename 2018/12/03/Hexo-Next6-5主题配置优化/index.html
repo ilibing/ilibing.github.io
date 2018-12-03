@@ -117,7 +117,7 @@
 <meta property="og:description" content="因为无法再见面，所以要笑着说再见。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203021727-97401.jpg">
-<meta property="og:updated_time" content="2018-12-03T06:38:46.024Z">
+<meta property="og:updated_time" content="2018-12-03T07:24:43.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo Next6.5主题配置优化">
 <meta name="twitter:description" content="因为无法再见面，所以要笑着说再见。">
@@ -429,7 +429,7 @@
                 
               
 
-              <time title="创建时间：2018-12-03 14:10:44 / 修改时间：14:38:46" itemprop="dateCreated datePublished" datetime="2018-12-03T14:10:44+08:00">2018-12-03</time>
+              <time title="创建时间：2018-12-03 14:10:44 / 修改时间：15:24:43" itemprop="dateCreated datePublished" datetime="2018-12-03T14:10:44+08:00">2018-12-03</time>
             
 
             
@@ -488,7 +488,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.7k</span>
+                <span title="本文字数">3.9k</span>
               
 
               
@@ -523,7 +523,7 @@
 <p>在<code>\themes\next\layout\_layout.swig</code>文件末尾添加：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"/js/src/clicklove.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h5 id="3-修改文章内链接文本样式"><a href="#3-修改文章内链接文本样式" class="headerlink" title="3.修改文章内链接文本样式"></a>3.修改文章内链接文本样式</h5><p>修改文件 <code>themes\next\source\css\_common\components\post\post.styl</code>，在末尾添加如下css样式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #0593d3;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: 1px solid #0593d3;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #fc6423;</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: 1px solid #fc6423;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文章内链接文本样式</span></span><br><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #0593d3;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: 1px solid #0593d3;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #fc6423;</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: 1px solid #fc6423;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="4-修改文章底部的那个带-号的标签"><a href="#4-修改文章底部的那个带-号的标签" class="headerlink" title="4.修改文章底部的那个带#号的标签"></a>4.修改文章底部的那个带#号的标签</h5><p>修改模板<code>/themes/next/layout/_macro/post.swig</code>，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
 <h5 id="5-在每篇文章末尾统一添加“本文结束”标记"><a href="#5-在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="5.在每篇文章末尾统一添加“本文结束”标记"></a>5.在每篇文章末尾统一添加“本文结束”标记</h5><p>在路径 <code>\themes\next\layout\_macro</code> 中新建 <code>passage-end-tag.swig</code> 文件,并添加以下内容：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</span><br><span class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;-------------本文结束&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-paw"</span>&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
@@ -535,7 +535,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line"> .post &#123;</span><br><span class="line">   margin-top: <span class="number">60</span>px;</span><br><span class="line">   margin-bottom: <span class="number">60</span>px;</span><br><span class="line">   padding: <span class="number">25</span>px;</span><br><span class="line">   -webkit-box-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span>);</span><br><span class="line">   -moz-box-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h5 id="7-动态背景"><a href="#7-动态背景" class="headerlink" title="7.动态背景"></a>7.动态背景</h5><p>进入<code>theme/next</code>目录，执行命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
-<p>将配置文件<code>_config.yml</code>中的<code>canvas_nest: false</code>改为<code>canvas_nest: true</code>才能真正生效。</p>
+<p>将主题配置文件<code>_config.yml</code>中的<code>canvas_nest: false</code>改为<code>canvas_nest: true</code>生效。</p>
+<h5 id="8-添加搜索功能"><a href="#8-添加搜索功能" class="headerlink" title="8.添加搜索功能"></a>8.添加搜索功能</h5><p>安装 <code>hexo-generator-searchdb</code>，在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>编辑根配置文件，新增以下内容到任意位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p>编辑Next主题配置文件，启用本地搜索功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -778,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Next底部图标设置"><span class="nav-number">1.</span> <span class="nav-text">1.Next底部图标设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实现点击出现桃心效果"><span class="nav-number">2.</span> <span class="nav-text">2.实现点击出现桃心效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">3.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-修改文章底部的那个带-号的标签"><span class="nav-number">4.</span> <span class="nav-text">4.修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">5.在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-主页文章添加阴影效果"><span class="nav-number">6.</span> <span class="nav-text">6.主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-动态背景"><span class="nav-number">7.</span> <span class="nav-text">7.动态背景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Next底部图标设置"><span class="nav-number">1.</span> <span class="nav-text">1.Next底部图标设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实现点击出现桃心效果"><span class="nav-number">2.</span> <span class="nav-text">2.实现点击出现桃心效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">3.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-修改文章底部的那个带-号的标签"><span class="nav-number">4.</span> <span class="nav-text">4.修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-在每篇文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">5.在每篇文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-主页文章添加阴影效果"><span class="nav-number">6.</span> <span class="nav-text">6.主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-动态背景"><span class="nav-number">7.</span> <span class="nav-text">7.动态背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-添加搜索功能"><span class="nav-number">8.</span> <span class="nav-text">8.添加搜索功能</span></a></li></ol></div>
             
 
           </div>
@@ -1309,6 +1315,75 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
   
 
