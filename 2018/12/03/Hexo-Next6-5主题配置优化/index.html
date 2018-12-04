@@ -115,13 +115,13 @@
 
 
 
-  <meta name="description" content="年年是记忆，来日也可期。                        –歌曲&amp;lt;徐秉龙&amp;gt;">
+  <meta name="description" content="年年是记忆，来日也可期。 RainyDay-&amp;lt;徐秉龙&amp;gt;">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Next6.5主题配置优化">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/Hexo-Next6-5主题配置优化/index.html">
 <meta property="og:site_name" content="清白之年">
-<meta property="og:description" content="年年是记忆，来日也可期。                        –歌曲&amp;lt;徐秉龙&amp;gt;">
+<meta property="og:description" content="年年是记忆，来日也可期。 RainyDay-&amp;lt;徐秉龙&amp;gt;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203021727-97401.jpg">
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203083237-815121.jpg">
@@ -130,10 +130,10 @@
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203090028-48346.jpg">
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181204110823-980831.png">
 <meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203092647-940087.jpg">
-<meta property="og:updated_time" content="2018-12-04T03:25:41.359Z">
+<meta property="og:updated_time" content="2018-12-04T07:30:55.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo Next6.5主题配置优化">
-<meta name="twitter:description" content="年年是记忆，来日也可期。                        –歌曲&amp;lt;徐秉龙&amp;gt;">
+<meta name="twitter:description" content="年年是记忆，来日也可期。 RainyDay-&amp;lt;徐秉龙&amp;gt;">
 <meta name="twitter:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181203021727-97401.jpg">
 
 
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-04 11:25:41" itemprop="dateModified" datetime="2018-12-04T11:25:41+08:00">2018-12-04</time>
+                <time title="修改时间：2018-12-04 15:30:55" itemprop="dateModified" datetime="2018-12-04T15:30:55+08:00">2018-12-04</time>
               
             
           </span>
@@ -546,8 +546,9 @@
       
 
       
-        <blockquote class="blockquote-center"><br>    年年是记忆，来日也可期。<br>                        –歌曲&lt;徐秉龙&gt;<br></blockquote>    
-
+        <blockquote class="blockquote-center"><p>年年是记忆，来日也可期。</p>
+<font size="1">RainyDay-&lt;徐秉龙&gt;</font>
+</blockquote>
 <a id="more"></a>
 <p>基于Next 6.5版本，网上有很多Next主题配置优化的教程，查找下来感觉比较杂乱，因此总结一些自己所使用的。</p>
 <h5 id="1-Next底部图标设置"><a href="#1-Next底部图标设置" class="headerlink" title="1.Next底部图标设置"></a>1.Next底部图标设置</h5><p>将底部的图标设置为动态红心效果。</p>
@@ -602,12 +603,12 @@
 <p>文章中的写法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer <span class="string">"歌曲名"</span> <span class="string">"歌手名"</span> <span class="string">"https://什么什么什么.mp3"</span> <span class="string">"https://封面图.jpg"</span> <span class="string">"lrc:https://歌词.lrc"</span> %&#125;</span><br></pre></td></tr></table></figure>
 
-        <div id="aplayer-LrPHQskJ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-SkCbnDcA" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-LrPHQskJ"),
+            element: document.getElementById("aplayer-SkCbnDcA"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -624,6 +625,11 @@
         </script> 
 <p>另外可以支持歌单：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayerlist %&#125;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"autoplay"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"showlrc"</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">"mutex"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"music"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"title"</span>: <span class="string">"歌曲名"</span>,</span><br><span class="line">            <span class="string">"author"</span>: <span class="string">"歌手名"</span>,</span><br><span class="line">            <span class="string">"url"</span>: <span class="string">"https://什么什么什么.mp3"</span>,</span><br><span class="line">            <span class="string">"pic"</span>: <span class="string">"https://封面图.jpg"</span>,</span><br><span class="line">            <span class="string">"lrc"</span>: <span class="string">"https://歌词.lrc"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"title"</span>: <span class="string">"歌曲名"</span>,</span><br><span class="line">            <span class="string">"author"</span>: <span class="string">"歌手名"</span>,</span><br><span class="line">            <span class="string">"url"</span>: <span class="string">"https://什么什么什么.mp3"</span>,</span><br><span class="line">            <span class="string">"pic"</span>: <span class="string">"https://封面图.jpg"</span>,</span><br><span class="line">            <span class="string">"lrc"</span>: <span class="string">"https://歌词.lrc"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endaplayerlist %&#125;</span><br></pre></td></tr></table></figure>
+<p>更多优化可参考博客教程：</p>
+<ul>
+<li><a href="https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html#%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA%EF%BC%88%E5%8F%AF%E4%BB%A5%E6%9C%80%E5%90%8E%E7%9C%8B%EF%BC%89" target="_blank" rel="noopener">打造个性超赞博客Hexo+NexT+GitHubPages的超深度优化</a></li>
+</ul>
+
       
     </div>
 
@@ -752,7 +758,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -769,7 +775,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -788,7 +796,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
