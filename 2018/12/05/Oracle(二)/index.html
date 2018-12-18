@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="我有整个宇宙想讲给你听，张嘴却吐不出半粒星辰。 方拾贰-&amp;lt;山下&amp;gt;">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle(二)">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/Oracle(二)/index.html">
+<meta property="og:site_name" content="清白之年">
+<meta property="og:description" content="我有整个宇宙想讲给你听，张嘴却吐不出半粒星辰。 方拾贰-&amp;lt;山下&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181205093544-768535.jpg">
+<meta property="og:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181205093616-577076.jpg">
+<meta property="og:updated_time" content="2018-12-18T05:49:32.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle(二)">
+<meta name="twitter:description" content="我有整个宇宙想讲给你听，张嘴却吐不出半粒星辰。 方拾贰-&amp;lt;山下&amp;gt;">
+<meta name="twitter:image" content="http://ilibing.nos-eastchina1.126.net/blog-img/20181205093544-768535.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/05/Oracle(二)/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Oracle(二) | 清白之年</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清白之年</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">层楼终究误少年 自由早晚乱余生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/Oracle(二)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Bing">
+      <meta itemprop="description" content="终有一天我们会再重逢">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="清白之年">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Oracle(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+        
+
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-05 21:04:03" itemprop="dateCreated datePublished" datetime="2018-12-05T21:04:03+08:00">2018-12-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-18 13:49:32" itemprop="dateModified" datetime="2018-12-18T13:49:32+08:00">2018-12-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">12k</span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>我有整个宇宙想讲给你听，张嘴却吐不出半粒星辰。</p>
+<font size="1">方拾贰-&lt;山下&gt;</font>
+</blockquote>
+<a id="more"></a>
+
+    <div id="aplayer-LbcPFEir" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="490106148" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+<hr>
+<p>以下结合<a href="https://ilibing.github.io/2018/12/03/Oracle%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%AF%87/" target="_blank" rel="noopener">基础篇</a>建表语句所建的表查询。</p>
+<h4 id="一-单表查询"><a href="#一-单表查询" class="headerlink" title="一.单表查询"></a>一.单表查询</h4><h5 id="1-简单条件查询"><a href="#1-简单条件查询" class="headerlink" title="1.简单条件查询"></a>1.简单条件查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">1.精确查询:</span><br><span class="line"><span class="comment">--查询水表编号为 30408 的业主记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> T_OWNERS <span class="keyword">where</span> WATERMETER=<span class="string">'30408'</span>;</span><br><span class="line">2.模糊查询:</span><br><span class="line"><span class="comment">--查询业主名称包含“刘”的业主记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%刘%'</span>;</span><br><span class="line">3. and 运算符:</span><br><span class="line"><span class="comment">--查询业主名称包含“刘”的并且门牌号包含 5 的业主记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%刘%'</span> <span class="keyword">and</span> housenumber <span class="keyword">like</span> <span class="string">'%5%'</span>;</span><br><span class="line">4. or 运算符:</span><br><span class="line"><span class="comment">--查询业主名称包含“刘”的或者门牌号包含 5 的业主记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%刘%'</span> <span class="keyword">or</span> housenumber <span class="keyword">like</span> <span class="string">'%5%'</span>;</span><br><span class="line">5.and 与 or 运算符混合使用:</span><br><span class="line"><span class="comment">--查询业主名称包含“刘”的或者门牌号包含 5 的业主记录，并且地址编号为 3 的记录。</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> (<span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%刘%'</span> <span class="keyword">or</span> housenumber <span class="keyword">like</span> <span class="string">'%5%'</span>) <span class="keyword">and</span> addressid=<span class="number">3</span>;</span><br><span class="line">6. 范围查询:</span><br><span class="line"><span class="comment">--查询台账记录中用水字数大于等于 10000，并且小于等于 20000 的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">where</span> usenum &gt;= <span class="number">10000</span> <span class="keyword">and</span> usenum &lt;= <span class="number">20000</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">where</span> usenum <span class="keyword">between</span> <span class="number">10000</span> <span class="keyword">and</span> <span class="number">20000</span>;</span><br><span class="line">7. 空值查询:</span><br><span class="line"><span class="comment">--查询 T_PRICETABLE 表中 MAXNUM 为空的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_pricetable <span class="keyword">where</span> maxnum <span class="keyword">is</span> <span class="literal">null</span>;</span><br><span class="line"><span class="comment">--查询 T_PRICETABLE 表中 MAXNUM 不为空的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_pricetable <span class="keyword">where</span> maxnum <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="2-去掉重复记录及排序"><a href="#2-去掉重复记录及排序" class="headerlink" title="2.去掉重复记录及排序"></a>2.去掉重复记录及排序</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询业主表中的地址 ID,不重复显示</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> addressid <span class="keyword">from</span> t_owners;</span><br><span class="line"><span class="comment">--对 T_ACCOUNT 表按使用量进行升序排序</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">order</span> <span class="keyword">by</span> usenum;</span><br><span class="line"><span class="comment">--对 T_ACCOUNT 表按使用量进行降序排序</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="3-基于伪列的查询"><a href="#3-基于伪列的查询" class="headerlink" title="3.基于伪列的查询"></a>3.基于伪列的查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--ROWID返回的就是该行的物理地址,可以快速的定位表中的某一行.</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rowID</span>,t.* <span class="keyword">from</span> t_area t;</span><br><span class="line"><span class="comment">--ROWNUM可以限制查询结果集中返回的行数,用于分页.</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rownum</span>,t.* <span class="keyword">from</span> t_ownertype t;</span><br></pre></td></tr></table></figure>
+<h5 id="4-聚合函数"><a href="#4-聚合函数" class="headerlink" title="4.聚合函数"></a>4.聚合函数</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--1.求和 sum:</span></span><br><span class="line"><span class="comment">--统计 2012 年所有用户的用水量总和</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(usenum) <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span>;</span><br><span class="line"><span class="comment">--2.求平均 avg:</span></span><br><span class="line"><span class="comment">--统计 2012 年所有用水量（字数）的平均值</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(usenum) <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span>;</span><br><span class="line"><span class="comment">--3.求最大值 max:</span></span><br><span class="line"><span class="comment">--统计 2012 年最高用水量（字数）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(usenum) <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span>;</span><br><span class="line"><span class="comment">--4.求最小值 min:</span></span><br><span class="line"><span class="comment">--统计 2012 年最低用水量（字数）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">min</span>(usenum) <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span>;</span><br><span class="line"><span class="comment">--5.统计记录个数 count:</span></span><br><span class="line"><span class="comment">--统计业主类型 ID 为 1 的业主数量</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> t_owners <span class="keyword">where</span> ownertypeid=<span class="number">1</span>;</span><br><span class="line"><span class="comment">--6.分组聚合 Group by</span></span><br><span class="line"><span class="comment">--按区域分组统计水费合计数</span></span><br><span class="line"><span class="keyword">select</span> areaid,<span class="keyword">sum</span>(money) <span class="keyword">from</span> t_account <span class="keyword">group</span> <span class="keyword">by</span> areaid;</span><br><span class="line"><span class="comment">--7.分组后条件查询 having</span></span><br><span class="line"><span class="comment">--查询水费合计大于 169000 的区域及水费合计</span></span><br><span class="line"><span class="keyword">select</span> areaid,<span class="keyword">sum</span>(money) <span class="keyword">from</span> t_account <span class="keyword">group</span> <span class="keyword">by</span> areaid <span class="keyword">having</span> <span class="keyword">sum</span>(money)&gt;<span class="number">169000</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="二-多表查询"><a href="#二-多表查询" class="headerlink" title="二.多表查询"></a>二.多表查询</h4><blockquote>
+<p>内连接: inner join (inner可以省略)<br>​             显示内连接:在sql中显示的调用 inner join关键字.<br>​                      select  <em> from 表1 inner join 表2 on 关联条件;<br>​                 例: SELECT </em> FROM classes c INNER JOIN student s ON c.cid=s.cid;<br>​             隐式内连接: 在sql中没有调用 inner join关键字.<br>​                          select  * from 表1,表2 where 关联条件;(以下均采用此种)</p>
+<p>外连接: outer join (outer可以省略)<br>​               左外连接:<br>​                      select <em> from 表1 left outer join 表2 on 关联条件;<br>​               右外连接:<br>​                      select </em> from 表1 right outer join 表2 on 关联条件;</p>
+</blockquote>
+<h5 id="1-多表内连接查询"><a href="#1-多表内连接查询" class="headerlink" title="1.多表内连接查询"></a>1.多表内连接查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询显示业主编号，业主名称，业主类型名称(两表连接)</span></span><br><span class="line"><span class="keyword">select</span> ow.id 业主编号,ow.name 业主名称,ot.name 业主类型名称</span><br><span class="line"><span class="keyword">from</span> t_owners ow,t_ownertype ot <span class="keyword">where</span> ow.ownertypeid=ot.id; </span><br><span class="line"><span class="comment">--查询显示业主编号，业主名称、地址和业主类型(三表连接)</span></span><br><span class="line"><span class="keyword">select</span> ow.id 业主编号,ow.name 业主名称,ad.name 地址,ot.name 业主类型名称 <span class="keyword">from</span> t_owners ow,t_ownertype ot,t_address ad</span><br><span class="line"><span class="keyword">where</span> ow.ownertypeid=ot.id <span class="keyword">and</span> ow.addressid=ad.id;</span><br><span class="line"><span class="comment">--查询显示业主编号、业主名称、地址、所属区域、业主分类(四表连接)</span></span><br><span class="line"><span class="keyword">select</span> ow.id 业主编号,ow.name 业主名称,ad.name 地址,ae.name 所属区域,ot.name 业主类型名称</span><br><span class="line"><span class="keyword">from</span> t_owners ow,t_ownertype ot,t_address ad,t_area ae</span><br><span class="line"><span class="keyword">where</span> ow.ownertypeid=ot.id <span class="keyword">and</span> ow.addressid=ad.id <span class="keyword">and</span> ad.areaid=ae.id; </span><br><span class="line"><span class="comment">--查询显示业主编号、业主名称、地址、所属区域、收费员、业主分类(五表连接)</span></span><br><span class="line"><span class="keyword">select</span> ow.id 业主编号,ow.name 业主名称,ad.name 地址,ae.name 所属区域,op.name 收费员,ot.name 业主类型名称 <span class="keyword">from</span> t_owners ow,t_ownertype ot,t_address ad,t_area ae,t_operator op</span><br><span class="line"><span class="keyword">where</span> ow.ownertypeid=ot.id <span class="keyword">and</span> ow.addressid=ad.id <span class="keyword">and</span> ad.areaid=ae.id <span class="keyword">and</span> ad.operatorid=op.id;</span><br></pre></td></tr></table></figure>
+<h5 id="2-左外连接查询"><a href="#2-左外连接查询" class="headerlink" title="2.左外连接查询"></a>2.左外连接查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询业主的账务记录，显示业主编号、名称、年、月、金额。如果此业主没有账务记录也要列出姓名。</span></span><br><span class="line"><span class="comment">--sql标准:</span></span><br><span class="line"><span class="keyword">select</span> ow.id,ow.name,ac.year ,ac.month,ac.money</span><br><span class="line"><span class="keyword">from</span> t_owners ow <span class="keyword">left</span> <span class="keyword">join</span> t_account ac <span class="keyword">on</span> ow.id=ac.owneruuid;</span><br><span class="line"><span class="comment">--oracle标准:</span></span><br><span class="line"><span class="keyword">select</span> ow.id,ow.name,ac.year ,ac.month,ac.money</span><br><span class="line"><span class="keyword">from</span> t_owners ow ,t_account ac <span class="keyword">where</span> ow.id=ac.owneruuid(+);</span><br></pre></td></tr></table></figure>
+<h5 id="3-右外连接查询"><a href="#3-右外连接查询" class="headerlink" title="3.右外连接查询"></a>3.右外连接查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查询业主的账务记录，显示业主编号、名称、年、月、金额,如果账务记录没有对应的业主信息，也要列出记录.</span></span><br><span class="line"><span class="comment">--sql标准:</span></span><br><span class="line"><span class="keyword">select</span> ow.id,ow.name,ac.year ,ac.month,ac.money</span><br><span class="line"><span class="keyword">from</span> t_owners ow <span class="keyword">right</span> <span class="keyword">join</span> t_account ac <span class="keyword">on</span> ow.id=ac.owneruuid;</span><br><span class="line"><span class="comment">--oracle标准:</span></span><br><span class="line"><span class="keyword">select</span> ow.id,ow.name,ac.year ,ac.month,ac.money</span><br><span class="line"><span class="keyword">from</span> t_owners ow ,t_account ac <span class="keyword">where</span> ow.id(+)=ac.owneruuid;</span><br></pre></td></tr></table></figure>
+<h5 id="4-子查询"><a href="#4-子查询" class="headerlink" title="4.子查询"></a>4.子查询</h5><h6 id="–where-子句中的子查询"><a href="#–where-子句中的子查询" class="headerlink" title="–where 子句中的子查询"></a>–where 子句中的子查询</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">单行子查询:只返回一条记录,使用单行操作符(&gt;,&lt;,=...)</span><br><span class="line"><span class="comment">--查询 2012 年 1 月用水量大于平均值的台账记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span> <span class="keyword">and</span> <span class="keyword">month</span>=<span class="string">'01'</span><span class="keyword">and</span> usenum&gt;</span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">avg</span>(usenum) <span class="keyword">from</span> t_account <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span> <span class="keyword">and</span> <span class="keyword">month</span>=<span class="string">'01'</span>);</span><br><span class="line">多行子查询:返回了多条记录,使用多行操作符(in,any,all)</span><br><span class="line"><span class="comment">--in 等于列表中的任何一个</span></span><br><span class="line"><span class="comment">--any 和子查询返回的任意一个值做比较</span></span><br><span class="line"><span class="comment">--all 和子查询返回的所有值做比较</span></span><br><span class="line"><span class="comment">--查询地址编号为 1 、3、4 的业主记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> addressid <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="comment">--查询地址含有“花园”的业主的信息</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> addressid <span class="keyword">in</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> t_address <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%花园%'</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="–from-子句中的子查询"><a href="#–from-子句中的子查询" class="headerlink" title="–from 子句中的子查询"></a>–from 子句中的子查询</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--(为多行子查询)</span></span><br><span class="line"><span class="comment">--查询显示业主编号，业主名称，业主类型名称，条件为业主类型为”居民”</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span> o.id 业主编号,o.name 业主名称,ot.name 业主类型名称 <span class="keyword">from</span> t_owners o,t_ownertype ot <span class="keyword">where</span> o.ownertypeid=ot.id)</span><br><span class="line"><span class="keyword">where</span> 业主类型名称=<span class="string">'居民'</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="–select子句的子查询"><a href="#–select子句的子查询" class="headerlink" title="–select子句的子查询"></a>–select子句的子查询</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--(为单行子查询)</span></span><br><span class="line"><span class="comment">--列出业主信息，包括 ID，名称，所属地址</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span>,(<span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> t_address <span class="keyword">where</span> <span class="keyword">id</span>=addressid) addressname <span class="keyword">from</span> t_owners;</span><br><span class="line"><span class="comment">--列出业主信息，包括 ID，名称，所属地址，所属区域</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">name</span>,</span><br><span class="line">( <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> t_address <span class="keyword">where</span> <span class="keyword">id</span>=addressid )addressname,</span><br><span class="line">( <span class="keyword">select</span> (<span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> t_area <span class="keyword">where</span> <span class="keyword">id</span>=areaid ) <span class="keyword">from</span></span><br><span class="line">t_address <span class="keyword">where</span> <span class="keyword">id</span>=addressid )adrename</span><br><span class="line"><span class="keyword">from</span> t_owners;</span><br></pre></td></tr></table></figure>
+<h4 id="三-分页查询"><a href="#三-分页查询" class="headerlink" title="三.分页查询"></a>三.分页查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">简单分页</span><br><span class="line"><span class="comment">--分页查询台账表 T_ACCOUNT，每页 10 条记录</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rownum</span>,t.* <span class="keyword">from</span> t_account t <span class="keyword">where</span> <span class="keyword">rownum</span>&lt;=<span class="number">10</span>;</span><br><span class="line"><span class="comment">--显示第 11 条到第 20 条的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span>(</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rownum</span> r,t.* <span class="keyword">from</span> t_account t <span class="keyword">where</span> <span class="keyword">rownum</span>&lt;=<span class="number">20</span>)</span><br><span class="line"><span class="keyword">where</span> r&gt;<span class="number">10</span>;</span><br><span class="line">=====================================</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">rownum</span> r, t.* <span class="keyword">from</span> t_account t)</span><br><span class="line"><span class="keyword">where</span> r&gt;<span class="number">10</span> <span class="keyword">and</span> r&lt;=<span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--分页查询台账表 T_ACCOUNT，每页 10 条记录，按使用字数降序排序</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">rownum</span> r,t.* <span class="keyword">from</span> </span><br><span class="line">    (<span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span>) t</span><br><span class="line">        <span class="keyword">where</span> <span class="keyword">rownum</span>&lt;=<span class="number">20</span>)</span><br><span class="line"> <span class="keyword">where</span> r&gt;<span class="number">10</span>;    </span><br><span class="line">=====================================</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">rownum</span> r, t.* <span class="keyword">from</span> (<span class="keyword">select</span> * <span class="keyword">from</span> t_account <span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span>) t) </span><br><span class="line"><span class="keyword">where</span> r&gt;<span class="number">10</span> <span class="keyword">and</span> r&lt;=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="四-单行函数"><a href="#四-单行函数" class="headerlink" title="四.单行函数"></a>四.单行函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--求字符串长度 LENGTH</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">length</span>(<span class="string">'ABCD'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--求字符串的子串 SUBSTR （源字符串,从第几位截取,截取字符串）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="string">'ABCD'</span>,<span class="number">2</span>,<span class="number">2</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--字符串拼接 CONCAT</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(<span class="string">'ABC'</span>,<span class="string">'D'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--字符串拼接2</span></span><br><span class="line"><span class="keyword">select</span> <span class="string">'ABC'</span>||<span class="string">'D'</span> <span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment">--数值函数</span></span><br><span class="line"><span class="comment">--四舍五入函数 ROUND</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">100.567</span>) <span class="keyword">from</span> dual; <span class="comment">--101</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">round</span>(<span class="number">100.567</span>,<span class="number">2</span>) <span class="keyword">from</span> dual;<span class="comment">--保留两位小数 100.57</span></span><br><span class="line"><span class="comment">--截取函数 TRUNC</span></span><br><span class="line"><span class="keyword">select</span> trunc(<span class="number">100.567</span>) <span class="keyword">from</span> dual; <span class="comment">--100</span></span><br><span class="line"><span class="keyword">select</span> trunc(<span class="number">100.567</span>,<span class="number">2</span>) <span class="keyword">from</span> dual; <span class="comment">--保留两位小数 100.56</span></span><br><span class="line"><span class="comment">--取模 MOD</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">mod</span>(<span class="number">10</span>,<span class="number">3</span>) <span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment">--日期函数</span></span><br><span class="line"><span class="comment">--获取当前日期和时间</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--加月函数 ADD_MONTHS ：在当前日期基础上加指定的月,减月-2;</span></span><br><span class="line"><span class="keyword">select</span> add_months(<span class="keyword">sysdate</span>,<span class="number">2</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--求所在月最后一天 LAST_DAY</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">last_day</span>(<span class="keyword">sysdate</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--日期截取 TRUNC</span></span><br><span class="line"><span class="keyword">select</span> TRUNC(<span class="keyword">sysdate</span>) <span class="keyword">from</span> dual; <span class="comment">--把时间截掉</span></span><br><span class="line"><span class="comment">--截取年</span></span><br><span class="line"><span class="keyword">select</span> TRUNC(<span class="keyword">sysdate</span>,<span class="string">'yyyy'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--截取月</span></span><br><span class="line"><span class="keyword">select</span> TRUNC(<span class="keyword">sysdate</span>,<span class="string">'mm'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"></span><br><span class="line"><span class="comment">--转换函数</span></span><br><span class="line"><span class="comment">--数字转字符串 TO_CHAR</span></span><br><span class="line"><span class="keyword">select</span> TO_CHAR(<span class="number">1024</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--日期转字符串 TO_CHAR</span></span><br><span class="line"><span class="keyword">select</span> TO_CHAR(<span class="keyword">sysdate</span>,<span class="string">'yyyy-mm-dd'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="keyword">select</span> TO_CHAR(<span class="keyword">sysdate</span>,<span class="string">'yyyy-mm-dd hh:mi:ss'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--字符串转日期 TO_DATE</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">TO_DATE</span>(<span class="string">'2017-01-01'</span>,<span class="string">'yyyy-mm-dd'</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--字符串转数字 TO_NUMBER</span></span><br><span class="line"><span class="keyword">select</span> to_number(<span class="string">'100'</span>) <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<h5 id="–其他函数"><a href="#–其他函数" class="headerlink" title="–其他函数"></a>–其他函数</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--其他函数</span></span><br><span class="line"><span class="comment">--空值处理函数 NVL</span></span><br><span class="line"><span class="keyword">select</span> NVL(<span class="literal">NULL</span>,<span class="number">0</span>) <span class="keyword">from</span> dual;</span><br><span class="line"><span class="comment">--显示价格表中业主类型 ID 为 1 的价格记录，如果上限值为 NULL,则显示 9999999</span></span><br><span class="line"><span class="keyword">select</span> PRICE,MINNUM,NVL(MAXNUM,<span class="number">9999999</span>)</span><br><span class="line"><span class="keyword">from</span> T_PRICETABLE <span class="keyword">where</span> OWNERTYPEID=<span class="number">1</span>;</span><br><span class="line"><span class="comment">--空值处理函数 NVL2(null,0,100) 如果为null,显示100,不为null,显示0</span></span><br><span class="line"><span class="comment">--显示价格表中业主类型 ID 为 1 的价格记录，如果上限值为 NULL,显示“不限”</span></span><br><span class="line"><span class="keyword">select</span> PRICE,MINNUM,NVL2(MAXNUM,to_char(MAXNUM) , <span class="string">'不限 '</span>)</span><br><span class="line"><span class="keyword">from</span> T_PRICETABLE <span class="keyword">where</span> OWNERTYPEID=<span class="number">1</span>;</span><br><span class="line"><span class="comment">--条件取值 decode</span></span><br><span class="line"><span class="comment">--语法</span></span><br><span class="line">decode(条件,值 1,翻译值 1,值 2,翻译值 2,...值 n,翻译值 n,缺省值)</span><br><span class="line">【功能】 根据条件返回相应值.</span><br><span class="line"><span class="comment">--显示下列信息（不要关联查询业主类型表，直接判断 1 2 3 的值）</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,<span class="keyword">decode</span>( ownertypeid,<span class="number">1</span>,<span class="string">' 居 民 '</span>,<span class="number">2</span>,<span class="string">' 行 政 事 业 单 位</span></span><br><span class="line"><span class="string">'</span>,<span class="number">3</span>,<span class="string">'商业'</span>) <span class="keyword">as</span> 类型 <span class="keyword">from</span> T_OWNERS;</span><br><span class="line"><span class="comment">--或者</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span> ,(<span class="keyword">case</span> ownertypeid</span><br><span class="line">    <span class="keyword">when</span> <span class="number">1</span> <span class="keyword">then</span> <span class="string">'居民'</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">2</span> <span class="keyword">then</span> <span class="string">'行政事业单位'</span></span><br><span class="line">    <span class="keyword">when</span> <span class="number">3</span> <span class="keyword">then</span> <span class="string">'商业'</span></span><br><span class="line">    <span class="keyword">else</span> <span class="string">'其它'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">) <span class="keyword">from</span> T_OWNERS;</span><br><span class="line"><span class="comment">--或者</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>,(<span class="keyword">case</span></span><br><span class="line">    <span class="keyword">when</span> ownertypeid= <span class="number">1</span> <span class="keyword">then</span> <span class="string">'居民'</span></span><br><span class="line">    <span class="keyword">when</span> ownertypeid= <span class="number">2</span> <span class="keyword">then</span> <span class="string">'行政事业'</span></span><br><span class="line">    <span class="keyword">when</span> ownertypeid= <span class="number">3</span> <span class="keyword">then</span> <span class="string">'商业'</span></span><br><span class="line"><span class="keyword">end</span> );</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select last_day(sysdate) from dual;</span><br><span class="line">--日期截取 TRUNC</span><br><span class="line">select TRUNC(sysdate) from dual; --把时间截掉</span><br><span class="line">--截取年</span><br><span class="line">select TRUNC(sysdate,&apos;yyyy&apos;) from dual;</span><br><span class="line">--截取月</span><br><span class="line">select TRUNC(sysdate,&apos;mm&apos;) from dual;</span><br><span class="line"></span><br><span class="line">--转换函数</span><br><span class="line">--数字转字符串 TO_CHAR</span><br><span class="line">select TO_CHAR(1024) from dual;</span><br><span class="line">--日期转字符串 TO_CHAR</span><br><span class="line">select TO_CHAR(sysdate,&apos;yyyy-mm-dd&apos;) from dual;</span><br><span class="line">select TO_CHAR(sysdate,&apos;yyyy-mm-dd hh:mi:ss&apos;) from dual;</span><br><span class="line">--字符串转日期 TO_DATE</span><br><span class="line">select TO_DATE(&apos;2017-01-01&apos;,&apos;yyyy-mm-dd&apos;) from dual;</span><br><span class="line">--字符串转数字 TO_NUMBER</span><br><span class="line">select to_number(&apos;100&apos;) from dual;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--其他函数</span><br><span class="line">--空值处理函数 NVL</span><br><span class="line">select NVL(NULL,0) from dual;</span><br><span class="line">--显示价格表中业主类型 ID 为 1 的价格记录，如果上限值为 NULL,则显示 9999999</span><br><span class="line">select PRICE,MINNUM,NVL(MAXNUM,9999999)</span><br><span class="line">from T_PRICETABLE where OWNERTYPEID=1;</span><br><span class="line">--空值处理函数 NVL2(null,0,100) 如果为null,显示100,不为null,显示0</span><br><span class="line">--显示价格表中业主类型 ID 为 1 的价格记录，如果上限值为 NULL,显示“不限”</span><br><span class="line">select PRICE,MINNUM,NVL2(MAXNUM,to_char(MAXNUM) , &apos;不限 &apos;)</span><br><span class="line">from T_PRICETABLE where OWNERTYPEID=1;</span><br><span class="line">--条件取值 decode</span><br><span class="line">--语法</span><br><span class="line">decode(条件,值 1,翻译值 1,值 2,翻译值 2,...值 n,翻译值 n,缺省值)</span><br><span class="line">【功能】 根据条件返回相应值.</span><br><span class="line">--显示下列信息（不要关联查询业主类型表，直接判断 1 2 3 的值）</span><br><span class="line">select name,decode( ownertypeid,1,&apos; 居 民 &apos;,2,&apos; 行 政 事 业 单 位</span><br><span class="line">&apos;,3,&apos;商业&apos;) as 类型 from T_OWNERS;</span><br><span class="line">--或者</span><br><span class="line">select name ,(case ownertypeid</span><br><span class="line">    when 1 then &apos;居民&apos;</span><br><span class="line">    when 2 then &apos;行政事业单位&apos;</span><br><span class="line">    when 3 then &apos;商业&apos;</span><br><span class="line">    else &apos;其它&apos;</span><br><span class="line">end</span><br><span class="line">) from T_OWNERS;</span><br><span class="line">--或者</span><br><span class="line">select name,(case</span><br><span class="line">    when ownertypeid= 1 then &apos;居民&apos;</span><br><span class="line">    when ownertypeid= 2 then &apos;行政事业&apos;</span><br><span class="line">    when ownertypeid= 3 then &apos;商业&apos;</span><br><span class="line">end );</span><br></pre></td></tr></table></figure>
+<h4 id="五-行列转换"><a href="#五-行列转换" class="headerlink" title="五.行列转换"></a>五.行列转换</h4><p> <img src="http://ilibing.nos-eastchina1.126.net/blog-img/20181205093544-768535.jpg" alt=""></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> (<span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> T_AREA <span class="keyword">where</span> <span class="keyword">id</span>= areaid ) 区域,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'01'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 一月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'02'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 二月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'03'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 三月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'04'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 四月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'05'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 五月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'06'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 六月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'07'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 七月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'08'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 八月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'09'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 九月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'10'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 十月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'11'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 十一月,</span><br><span class="line">    <span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>=<span class="string">'12'</span> <span class="keyword">then</span> money <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) 十二月</span><br><span class="line"><span class="keyword">from</span> T_ACCOUNT <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span> <span class="keyword">group</span> <span class="keyword">by</span> areaid;</span><br></pre></td></tr></table></figure>
+<p> <img src="http://ilibing.nos-eastchina1.126.net/blog-img/20181205093616-577076.jpg" alt=""></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> (<span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> T_AREA <span class="keyword">where</span> <span class="keyword">id</span>= areaid ) 区域,</span><br><span class="line"><span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>&gt;=<span class="string">'01'</span> <span class="keyword">and</span> <span class="keyword">month</span>&lt;=<span class="string">'03'</span> <span class="keyword">then</span> money <span class="keyword">else</span></span><br><span class="line"><span class="number">0</span> <span class="keyword">end</span>) 第一季度,</span><br><span class="line"><span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>&gt;=<span class="string">'04'</span> <span class="keyword">and</span> <span class="keyword">month</span>&lt;=<span class="string">'06'</span> <span class="keyword">then</span> money <span class="keyword">else</span></span><br><span class="line"><span class="number">0</span> <span class="keyword">end</span>) 第二季度,</span><br><span class="line"><span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>&gt;=<span class="string">'07'</span> <span class="keyword">and</span> <span class="keyword">month</span>&lt;=<span class="string">'09'</span> <span class="keyword">then</span> money <span class="keyword">else</span></span><br><span class="line"><span class="number">0</span> <span class="keyword">end</span>) 第三季度,</span><br><span class="line"><span class="keyword">sum</span>( <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">month</span>&gt;=<span class="string">'10'</span> <span class="keyword">and</span> <span class="keyword">month</span>&lt;=<span class="string">'12'</span> <span class="keyword">then</span> money <span class="keyword">else</span></span><br><span class="line"><span class="number">0</span> <span class="keyword">end</span>) 第四季度</span><br><span class="line"><span class="keyword">from</span> T_ACCOUNT <span class="keyword">where</span> <span class="keyword">year</span>=<span class="string">'2012'</span> <span class="keyword">group</span> <span class="keyword">by</span> areaid;</span><br></pre></td></tr></table></figure>
+<h4 id="六-分析函数"><a href="#六-分析函数" class="headerlink" title="六.分析函数"></a>六.分析函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--1. RANK 相同的值排名相同，排名跳跃</span></span><br><span class="line"><span class="comment">--对 T_ACCOUNT 表的 usenum 字段进行排序，相同的值排名相同，排名跳跃</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rank</span>() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span> ),usenum <span class="keyword">from</span> T_ACCOUNT;</span><br><span class="line"></span><br><span class="line"><span class="comment">--2. DENSE_RANK 相同的值排名相同，排名连续</span></span><br><span class="line"><span class="comment">--对 T_ACCOUNT 表的 usenum 字段进行排序，相同的值排名相同，排名连续</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">dense_rank</span>() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span> ),usenum <span class="keyword">from</span> T_ACCOUNT;</span><br><span class="line"></span><br><span class="line"><span class="comment">--3. ROW_NUMBER 返回连续的排名，无论值是否相等</span></span><br><span class="line"><span class="comment">--对 T_ACCOUNT 表的 usenum 字段进行排序，返回连续的排名，无论值是否相等</span></span><br><span class="line"><span class="keyword">select</span> row_number() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span> ),usenum <span class="keyword">from</span> T_ACCOUNT;</span><br><span class="line"></span><br><span class="line"><span class="comment">--row_number()分析函数实现的分页</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span> row_number() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> usenum <span class="keyword">desc</span> )</span><br><span class="line">rownumber,usenum <span class="keyword">from</span> T_ACCOUNT)</span><br><span class="line"><span class="keyword">where</span> rownumber&gt;<span class="number">10</span> <span class="keyword">and</span> rownumber&lt;=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="七-集合运算"><a href="#七-集合运算" class="headerlink" title="七.集合运算"></a>七.集合运算</h4><blockquote>
+<p>集合运算，集合运算就是将两个或者多个结果集组合成为一个结果集。</p>
+<p>集合运算包括：</p>
+<p>​    UNION ALL(并集)，返回各个查询的所有记录，包括重复记录。</p>
+<p>​    UNION(并集)，返回各个查询的所有记录，不包括重复记录。</p>
+<p>​    INTERSECT(交集)，返回两个查询共有的记录。</p>
+<p>​    MINUS(差集)，返回第一个查询检索出的记录减去第二个查询检索出的记录之<br>                  后剩余的记录.</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--并集运算</span></span><br><span class="line"><span class="comment">--UNION ALL 不去掉重复记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">7</span></span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&gt;=<span class="number">5</span>;</span><br><span class="line"><span class="comment">--UNION 去掉重复记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">7</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&gt;=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--交集运算</span></span><br><span class="line"><span class="comment">--intersect 运算符返回同时属于两个集合的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">7</span></span><br><span class="line"><span class="keyword">intersect</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&gt;=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--差集运算</span></span><br><span class="line"><span class="comment">--minus 返回属于第一个集合,但不属于第二个集合的记录</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">7</span></span><br><span class="line"><span class="keyword">minus</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_owners <span class="keyword">where</span> <span class="keyword">id</span>&gt;=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--minus 运算符来实现分页</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rownum</span>,t.* <span class="keyword">from</span> T_ACCOUNT t <span class="keyword">where</span> <span class="keyword">rownum</span>&lt;=<span class="number">20</span></span><br><span class="line"><span class="keyword">minus</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">rownum</span>,t.* <span class="keyword">from</span> T_ACCOUNT t <span class="keyword">where</span> <span class="keyword">rownum</span>&lt;=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Oracle/" rel="tag"><i class="fa fa-tag"></i> Oracle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/04/Windows常用软件推荐及下载/" rel="next" title="Windows常用软件推荐及下载">
+                <i class="fa fa-chevron-left"></i> Windows常用软件推荐及下载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/12/Linux学习-常用命令/" rel="prev" title="Linux学习-常用命令">
+                Linux学习-常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Li Bing">
+            
+              <p class="site-author-name" itemprop="name">Li Bing</p>
+              <p class="site-description motion-element" itemprop="description">终有一天我们会再重逢</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ilibing" title="GitHub &rarr; https://github.com/ilibing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:13125149629@163.com" title="E-Mail &rarr; mailto:13125149629@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/8888bing?topnav=1&wvr=6&topsug=1&is_all=1" title="WeiBo &rarr; https://weibo.com/8888bing?topnav=1&wvr=6&topsug=1&is_all=1" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>WeiBo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/?from=infinity#/user/home?id=65620998" title="Music &rarr; https://music.163.com/?from=infinity#/user/home?id=65620998" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-单表查询"><span class="nav-number">1.</span> <span class="nav-text">一.单表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-简单条件查询"><span class="nav-number">1.1.</span> <span class="nav-text">1.简单条件查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-去掉重复记录及排序"><span class="nav-number">1.2.</span> <span class="nav-text">2.去掉重复记录及排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-基于伪列的查询"><span class="nav-number">1.3.</span> <span class="nav-text">3.基于伪列的查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-聚合函数"><span class="nav-number">1.4.</span> <span class="nav-text">4.聚合函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-多表查询"><span class="nav-number">2.</span> <span class="nav-text">二.多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-多表内连接查询"><span class="nav-number">2.1.</span> <span class="nav-text">1.多表内连接查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-左外连接查询"><span class="nav-number">2.2.</span> <span class="nav-text">2.左外连接查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-右外连接查询"><span class="nav-number">2.3.</span> <span class="nav-text">3.右外连接查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-子查询"><span class="nav-number">2.4.</span> <span class="nav-text">4.子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#–where-子句中的子查询"><span class="nav-number">2.4.1.</span> <span class="nav-text">–where 子句中的子查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#–from-子句中的子查询"><span class="nav-number">2.4.2.</span> <span class="nav-text">–from 子句中的子查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#–select子句的子查询"><span class="nav-number">2.4.3.</span> <span class="nav-text">–select子句的子查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-分页查询"><span class="nav-number">3.</span> <span class="nav-text">三.分页查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-单行函数"><span class="nav-number">4.</span> <span class="nav-text">四.单行函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#–其他函数"><span class="nav-number">4.1.</span> <span class="nav-text">–其他函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-行列转换"><span class="nav-number">5.</span> <span class="nav-text">五.行列转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-分析函数"><span class="nav-number">6.</span> <span class="nav-text">六.分析函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-集合运算"><span class="nav-number">7.</span> <span class="nav-text">七.集合运算</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+    <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=490106148&auto=0&height=66"></iframe>
+    
+    </div>
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Bing</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
